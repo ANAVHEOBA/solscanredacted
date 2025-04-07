@@ -1,5 +1,6 @@
 // src/index.ts
-import { createServer } from 'http';
+import { createServer, Server as HttpServer } from 'http';
+import { Server } from 'socket.io';
 import createApp from './app';
 import { connectDatabase } from './config/database';
 import { logger } from './utils/logger';
@@ -12,21 +13,43 @@ async function startServer() {
         await connectDatabase();
         logger.info('Connected to MongoDB');
 
-        // Create Express app and get WebSocket service
-        const { app, webSocketService } = createApp();
-
         // Create HTTP server
-        const server = createServer(app);
+        const server: HttpServer = createServer();
 
-        // Initialize WebSocket service with server
-        Object.defineProperty(webSocketService, 'io', {
-            value: webSocketService['io'].attach(server),
-            writable: false
+        // Initialize Socket.IO
+        const io = new Server(server, {
+            cors: {
+                origin: "*",
+                methods: ["GET", "POST"]
+            }
+        });
+
+        // Create Express app and get WebSocket service
+        const { app: expressApp, webSocketService } = createApp(server);
+
+        // WebSocket connection handling
+        io.on('connection', (socket) => {
+            logger.info('Client connected');
+
+            socket.on('subscribe:pool', (poolAddress: string) => {
+                socket.join(`pool:${poolAddress}`);
+                logger.info(`Client subscribed to pool: ${poolAddress}`);
+            });
+
+            socket.on('unsubscribe:pool', (poolAddress: string) => {
+                socket.leave(`pool:${poolAddress}`);
+                logger.info(`Client unsubscribed from pool: ${poolAddress}`);
+            });
+
+            socket.on('disconnect', () => {
+                logger.info('Client disconnected');
+            });
         });
 
         // Start server
         server.listen(PORT, () => {
-            logger.info(`Server is running on port ${PORT}`);
+            logger.info(`Server running on port ${PORT}`);
+            logger.info(`WebSocket server initialized`);
         });
 
     } catch (error) {

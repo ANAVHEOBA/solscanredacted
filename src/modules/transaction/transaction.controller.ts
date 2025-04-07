@@ -1,5 +1,3 @@
-
-
 // src/modules/transaction/transaction.controller.ts
 import { Request, Response } from 'express';
 import { TransactionService } from './transaction.service';
@@ -15,9 +13,14 @@ export class TransactionController {
 
     async getLastTransactions(req: Request, res: Response): Promise<void> {
         try {
+            const limit = Number(req.query.limit);
+            const validLimits = [10, 20, 30, 40, 60, 100];
+            
             const params: LastTransactionParams = {
-                limit: req.query.limit as 10 | 20 | 30 | 40 | 60 | 100,
-                filter: req.query.filter as 'exceptVote' | 'all'
+                limit: validLimits.includes(limit) ? limit as 10 | 20 | 30 | 40 | 60 | 100 : 10,
+                filter: (req.query.filter === 'exceptVote' || req.query.filter === 'all') 
+                    ? req.query.filter 
+                    : 'all'
             };
 
             const transactions = await this.transactionService.getLastTransactions(params);
