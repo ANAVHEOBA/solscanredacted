@@ -110,7 +110,7 @@ export class FlowAnalyzer {
         // 3. Whether it uses known efficient pools
 
         const MAX_OPTIMAL_HOPS = 3;
-        const KNOWN_EFFICIENT_POOLS = new Set([
+        const KNOWN_EFFICIENT_POOLS: Set<string> = new Set([
             // Add known efficient pool addresses here
         ]);
 

@@ -3,6 +3,8 @@ import { FlowAnalysis } from '../analyzers/flow.analyzer';
 import { PatternAnalysis } from '../analyzers/pattern.detector';
 import { ImpactAnalysis } from '../analyzers/impact.calculator';
 import { logger } from '../../../utils/logger';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export interface StoredActivity {
     id: string;
@@ -29,6 +31,52 @@ export class ActivityDatabase {
         byTimestamp: new Map(),
         byTransaction: new Map()
     };
+    private readonly dbPath = path.join(process.cwd(), 'data', 'activities.json');
+
+    constructor() {
+        this.loadFromDisk();
+    }
+
+    private loadFromDisk(): void {
+        try {
+            if (!fs.existsSync(path.dirname(this.dbPath))) {
+                fs.mkdirSync(path.dirname(this.dbPath), { recursive: true });
+            }
+
+            if (fs.existsSync(this.dbPath)) {
+                const data = JSON.parse(fs.readFileSync(this.dbPath, 'utf-8'));
+                this.activities = new Map(Object.entries(data));
+                
+                // Rebuild indexes
+                this.rebuildIndexes();
+                logger.info('Successfully loaded activities from disk');
+            }
+        } catch (error) {
+            logger.error('Error loading activities from disk:', error);
+        }
+    }
+
+    private saveToDisk(): void {
+        try {
+            const data = Object.fromEntries(this.activities);
+            fs.writeFileSync(this.dbPath, JSON.stringify(data, null, 2));
+            logger.info('Successfully saved activities to disk');
+        } catch (error) {
+            logger.error('Error saving activities to disk:', error);
+        }
+    }
+
+    private rebuildIndexes(): void {
+        this.activityIndexes = {
+            byPool: new Map(),
+            byTimestamp: new Map(),
+            byTransaction: new Map()
+        };
+
+        for (const activity of this.activities.values()) {
+            this.updateIndexes(activity);
+        }
+    }
 
     public async storeActivity(
         activity: ProcessedActivity,
@@ -56,6 +104,9 @@ export class ActivityDatabase {
 
             // Update indexes
             this.updateIndexes(storedActivity);
+
+            // Save to disk
+            this.saveToDisk();
 
             logger.info(`Stored activity ${storedActivity.id}`);
         } catch (error) {

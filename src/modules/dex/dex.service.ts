@@ -1,68 +1,53 @@
 import { SolscanService } from '../../services/solscan.service';
-import { LiquidityStorageService } from '../analytics/services/liquidity.storage';
-import { LiquidityAnalytics } from '../analytics/services/liquidity.analytics';
 import { 
     DefiActivity, 
-    DefiActivityResponse,
     DefiActivityParams,
     BalanceChangeActivity,
-    BalanceChangeResponse,
     BalanceChangeParams,
     Transaction,
-    TransactionResponse,
     TransactionParams,
     Portfolio,
-    PortfolioResponse,
     PortfolioParams,
     TokenAccount,
-    TokenAccountResponse,
     TokenAccountParams,
     AccountDetail,
-    AccountDetailResponse,
     AccountDetailParams,
     AccountMetadata,
-    AccountMetadataResponse,
     AccountMetadataParams
 } from './dex.interface';
-import { ILiquidityFlow, IPoolState } from '../analytics/models/liquidity.model';
 import { logger } from '../../utils/logger';
 
-export interface LiquidityFlowParams {
-    poolAddress: string;
-    startTime?: number;
-    endTime?: number;
-    eventType?: 'ADD' | 'REMOVE' | 'SWAP';
-}
-
 export class DexService {
-    private liquidityStorage: LiquidityStorageService;
-
     constructor(
-        private solscanService: SolscanService,
-        private liquidityAnalytics: LiquidityAnalytics | null
-    ) {
-        this.liquidityStorage = new LiquidityStorageService();
-    }
-
-    public setLiquidityAnalytics(analytics: LiquidityAnalytics): void {
-        this.liquidityAnalytics = analytics;
-    }
+        private readonly solscanService: SolscanService
+    ) {}
 
     async getDefiActivities(params: DefiActivityParams): Promise<DefiActivity[]> {
+        const startTime = Date.now();
+        logger.info('[DexService] getDefiActivities started', { 
+            params,
+            timestamp: new Date().toISOString()
+        });
+
         try {
+            logger.info('[DexService] Calling solscanService.getDefiActivities');
             const response = await this.solscanService.getDefiActivities(params);
+            
+            logger.info('[DexService] Successfully got response from Solscan', {
+                dataLength: response.data?.length,
+                duration: Date.now() - startTime
+            });
+            
             return response.data;
         } catch (error) {
-            // Handle error appropriately
+            logger.error('[DexService] Error in getDefiActivities', {
+                error: error instanceof Error ? error.message : 'Unknown error',
+                stack: error instanceof Error ? error.stack : undefined,
+                duration: Date.now() - startTime
+            });
             throw error;
         }
     }
-
-    async monitorDexActivity() {
-        // Implement monitoring logic here
-        // This could include websocket connections or polling
-    }
-
 
     async getBalanceChanges(params: BalanceChangeParams): Promise<BalanceChangeActivity[]> {
         try {
@@ -74,10 +59,53 @@ export class DexService {
     }
 
     async getTransactions(params: TransactionParams): Promise<Transaction[]> {
+        const startTime = Date.now();
+        logger.info('[DexService] getTransactions started', { 
+            params,
+            timestamp: new Date().toISOString()
+        });
+
         try {
+            logger.info('[DexService] Calling solscanService.getTransactions');
             const response = await this.solscanService.getTransactions(params);
-            return response.data;
+            
+            logger.info('[DexService] Successfully got response from Solscan', {
+                success: response.success,
+                dataLength: response.data?.length,
+                sampleData: response.data?.[0],
+                duration: Date.now() - startTime
+            });
+
+            if (!response.success || !response.data) {
+                throw new Error('Invalid response from Solscan service');
+            }
+
+            const validTransactions = response.data.filter(tx => {
+                return tx && 
+                    typeof tx.slot === 'number' &&
+                    typeof tx.fee === 'number' &&
+                    typeof tx.status === 'string' &&
+                    Array.isArray(tx.signer) &&
+                    typeof tx.block_time === 'number' &&
+                    typeof tx.tx_hash === 'string' &&
+                    Array.isArray(tx.parsed_instructions) &&
+                    Array.isArray(tx.program_ids);
+            });
+
+            if (validTransactions.length === 0) {
+                logger.warn('[DexService] No valid transactions found in response', {
+                    totalTransactions: response.data.length,
+                    sampleInvalidTransaction: response.data[0]
+                });
+            }
+
+            return validTransactions;
         } catch (error) {
+            logger.error('[DexService] Error in getTransactions', {
+                error: error instanceof Error ? error.message : 'Unknown error',
+                stack: error instanceof Error ? error.stack : undefined,
+                duration: Date.now() - startTime
+            });
             throw error;
         }
     }
@@ -115,89 +143,6 @@ export class DexService {
             return response.data;
         } catch (error) {
             throw error;
-        }
-    }
-
-    public async getLiquidityFlows(params: {
-        poolAddress: string;
-        startTime?: number;
-        endTime?: number;
-    }): Promise<any> {
-        try {
-            if (!this.liquidityAnalytics) {
-                throw new Error('LiquidityAnalytics not initialized');
-            }
-
-            const analysis = await this.liquidityAnalytics.analyzePoolActivity(
-                params.poolAddress,
-                params.startTime,
-                params.endTime
-            );
-            return {
-                success: true,
-                data: analysis
-            };
-        } catch (error) {
-            logger.error('Error getting liquidity flows:', error);
-            return {
-                success: false,
-                error: 'Failed to analyze liquidity flows'
-            };
-        }
-    }
-
-    public async getPoolState(poolAddress: string): Promise<any> {
-        try {
-            if (!this.liquidityAnalytics) {
-                throw new Error('LiquidityAnalytics not initialized');
-            }
-
-            const analysis = await this.liquidityAnalytics.analyzePoolActivity(
-                poolAddress,
-                Date.now() - 86400000 // Last 24 hours
-            );
-            
-            return {
-                success: true,
-                data: {
-                    poolAddress,
-                    lastUpdate: Date.now(),
-                    volume24h: analysis.volumeAnalysis.total,
-                    swapCount24h: analysis.volumeAnalysis.swapCount,
-                    priceImpact: analysis.priceImpact,
-                    tokenAnalysis: analysis.tokenAnalysis,
-                    recentPatterns: {
-                        largeSwaps: analysis.patterns.largeSwaps,
-                        volumeSpikes: analysis.patterns.volumeSpikes
-                    }
-                }
-            };
-        } catch (error) {
-            logger.error('Error getting pool state:', error);
-            return {
-                success: false,
-                error: 'Pool not found or analysis failed'
-            };
-        }
-    }
-
-    public async getTopPools(limit: number = 10): Promise<any> {
-        try {
-            if (!this.liquidityAnalytics) {
-                throw new Error('LiquidityAnalytics not initialized');
-            }
-
-            const topPools = await this.liquidityAnalytics.getTopPools(limit);
-            return {
-                success: true,
-                data: topPools
-            };
-        } catch (error) {
-            logger.error('Error getting top pools:', error);
-            return {
-                success: false,
-                error: 'Failed to retrieve top pools'
-            };
         }
     }
 }

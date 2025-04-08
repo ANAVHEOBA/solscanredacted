@@ -1,124 +1,120 @@
-import { SolscanService } from '../../../services/solscan.service';
+import { Injectable } from '@nestjs/common';
+import { ActivityDatabase } from '../storage/activity.database';
+import { FlowAnalyzer } from '../analyzers/flow.analyzer';
+import { ImpactCalculator } from '../analyzers/impact.calculator';
+import { PatternDetector } from '../analyzers/pattern.detector';
+import { ProcessedActivity } from '../processors/activity.pipeline';
 import { logger } from '../../../utils/logger';
-import { 
-    DexActivityCollectorConfig, 
-    DexActivityCollectorOptions, 
-    DexActivityCollectorResult,
-    DexActivityCollectorStats 
-} from '../interfaces/dex-collector.interface';
-import { DefiActivityParams } from '../dex.interface';
+import { ActivityPipeline } from '../processors/activity.pipeline';
+import { ActivityParser } from '../processors/activity.parser';
+import { RouterExtractor } from '../processors/router.extractor';
+import { TokenNormalizer } from '../processors/token.normalizer';
+import { DataValidatorService } from './data-validator.service';
+import { DefiActivity, ActivityType } from '../dex.interface';
 
-export class DexActivityCollector {
-    private stats: DexActivityCollectorStats = {
-        totalRequests: 0,
-        successfulRequests: 0,
-        failedRequests: 0,
-        averageResponseTime: 0,
-        lastRequestTime: 0
-    };
+@Injectable()
+export class DexActivityCollectorService {
+    private readonly activityPipeline: ActivityPipeline;
+    private readonly flowAnalyzer: FlowAnalyzer;
+    private readonly patternDetector: PatternDetector;
+    private readonly impactCalculator: ImpactCalculator;
 
     constructor(
-        private readonly solscanService: SolscanService,
-        private readonly config: DexActivityCollectorConfig
-    ) {}
+        private readonly activityDatabase: ActivityDatabase,
+        private readonly dataValidator: DataValidatorService
+    ) {
+        this.activityPipeline = new ActivityPipeline(
+            new ActivityParser(),
+            new RouterExtractor(),
+            new TokenNormalizer()
+        );
+        this.flowAnalyzer = new FlowAnalyzer();
+        this.patternDetector = new PatternDetector();
+        this.impactCalculator = new ImpactCalculator();
+    }
 
-    public async collectActivities(options: DexActivityCollectorOptions): Promise<DexActivityCollectorResult> {
-        const activities: any[] = [];
-        let currentPage = 1;
-        let hasMore = true;
+    async processAndStoreActivity(activity: ProcessedActivity): Promise<void> {
+        try {
+            // Analyze the activity
+            const flowAnalysis = this.flowAnalyzer.analyzeFlow(activity);
+            
+            // Use default reserves since we don't have access to real-time data
+            const defaultReserves = [{
+                token1: flowAnalysis.tokenFlow.inputAmount * 100, // Assume pool has 100x the input amount
+                token2: flowAnalysis.tokenFlow.outputAmount * 100 // Assume pool has 100x the output amount
+            }];
+            
+            const impactAnalysis = this.impactCalculator.calculateImpact(activity, flowAnalysis, defaultReserves);
+            const patternAnalysis = this.patternDetector.detectPatterns(activity, flowAnalysis);
 
-        while (hasMore) {
-            try {
-                const params: DefiActivityParams = this.buildRequestParams(options, currentPage);
-                const startTime = Date.now();
+            // Store the activity with all analyses
+            await this.activityDatabase.storeActivity(
+                activity,
+                flowAnalysis,
+                patternAnalysis,
+                impactAnalysis
+            );
 
-                const response = await this.solscanService.getDefiActivities(params);
-                const endTime = Date.now();
-                const responseTime = endTime - startTime;
-
-                this.updateStats(true, responseTime);
-
-                if (response.success && response.data.length > 0) {
-                    activities.push(...response.data);
-                    hasMore = response.data.length === options.pageSize;
-                    currentPage++;
-                } else {
-                    hasMore = false;
-                }
-
-                // Rate limiting
-                await this.handleRateLimit();
+            logger.info(`Successfully processed and stored activity for transaction ${activity.parsed.transactionId}`);
             } catch (error) {
-                this.updateStats(false);
-                logger.error('Error collecting DEX activities:', error);
+            logger.error('Error processing and storing activity:', error);
                 throw error;
             }
         }
 
-        return {
-            activities,
-            stats: this.stats,
-            metadata: {
-                totalPages: currentPage - 1,
-                currentPage: currentPage - 1,
-                hasMore: false
+    // Add a method to process and store mock data for testing
+    public async addMockActivity(): Promise<void> {
+        const timestamp = Date.now();
+        const mockActivity: DefiActivity = {
+            block_id: timestamp,
+            trans_id: `mock-tx-${timestamp}`,
+            block_time: timestamp,
+            time: new Date(timestamp).toISOString(),
+            activity_type: ActivityType.ACTIVITY_AGG_TOKEN_SWAP,
+            from_address: 'mock-address',
+            to_address: 'mock-address',
+            platform: 'raydium',
+            sources: ['whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc'],
+            amount_info: {
+                token1: 'tokenA',
+                token1_decimals: 9,
+                amount1: 1000000000,
+                token2: 'tokenB',
+                token2_decimals: 9,
+                amount2: 950000000,
+                routers: [{
+                    token1: 'tokenA',
+                    token1_decimals: 9,
+                    amount1: '1000000000',
+                    token2: 'tokenB',
+                    token2_decimals: 9,
+                    amount2: '950000000'
+                }]
             }
         };
-    }
 
-    private buildRequestParams(options: DexActivityCollectorOptions, page: number): DefiActivityParams {
-        return {
-            address: options.address,
-            activity_type: options.activityTypes,
-            platform: options.platforms,
-            source: options.sources,
-            token: options.tokens?.[0],
-            from_time: options.timeRange?.from,
-            to_time: options.timeRange?.to,
-            page,
-            page_size: options.pageSize || this.config.batchSize,
-            sort_by: options.sortBy,
-            sort_order: options.sortOrder
-        };
-    }
-
-    private updateStats(success: boolean, responseTime?: number): void {
-        this.stats.totalRequests++;
+        // Process and store the activity
+        const processedActivity = await this.activityPipeline.processActivity(mockActivity);
+        const flowAnalysis = this.flowAnalyzer.analyzeFlow(processedActivity);
+        const patternAnalysis = this.patternDetector.detectPatterns(processedActivity, flowAnalysis);
         
-        if (success) {
-            this.stats.successfulRequests++;
-            if (responseTime) {
-                this.stats.averageResponseTime = 
-                    (this.stats.averageResponseTime * (this.stats.successfulRequests - 1) + responseTime) / 
-                    this.stats.successfulRequests;
-            }
-        } else {
-            this.stats.failedRequests++;
-        }
-        
-        this.stats.lastRequestTime = Date.now();
-    }
+        // Use default reserves based on flow analysis
+        const defaultReserves = [{
+            token1: flowAnalysis.tokenFlow.inputAmount * 100, // Assume pool has 100x the input amount
+            token2: flowAnalysis.tokenFlow.outputAmount * 100 // Assume pool has 100x the output amount
+        }];
 
-    private async handleRateLimit(): Promise<void> {
-        const timeSinceLastRequest = Date.now() - this.stats.lastRequestTime;
-        const minDelay = (60 * 1000) / this.config.rateLimit.requestsPerMinute;
-        
-        if (timeSinceLastRequest < minDelay) {
-            await new Promise(resolve => setTimeout(resolve, minDelay - timeSinceLastRequest));
-        }
-    }
+        const impactAnalysis = this.impactCalculator.calculateImpact(
+            processedActivity,
+            flowAnalysis,
+            defaultReserves
+        );
 
-    public getStats(): DexActivityCollectorStats {
-        return { ...this.stats };
-    }
-
-    public resetStats(): void {
-        this.stats = {
-            totalRequests: 0,
-            successfulRequests: 0,
-            failedRequests: 0,
-            averageResponseTime: 0,
-            lastRequestTime: 0
-        };
+        await this.activityDatabase.storeActivity(
+            processedActivity,
+            flowAnalysis,
+            patternAnalysis,
+            impactAnalysis
+        );
     }
 } 

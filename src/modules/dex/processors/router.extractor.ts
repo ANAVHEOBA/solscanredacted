@@ -40,9 +40,13 @@ export class RouterExtractor {
         return routers.map(router => {
             this.validateRouter(router);
             
+            // Handle both router formats
+            const poolAddress = router.pool_address || router.poolAddress || 'unknown';
+            const programAddress = router.program_address || router.programAddress || 'unknown';
+            
             return {
-                poolAddress: router.pool_address,
-                programAddress: router.program_address,
+                poolAddress,
+                programAddress,
                 token1: router.token1,
                 token1Decimals: router.token1_decimals,
                 amount1: router.amount1.toString(),
@@ -55,7 +59,6 @@ export class RouterExtractor {
 
     private validateRouter(router: any): void {
         const requiredFields = [
-            'pool_address', 'program_address',
             'token1', 'token1_decimals', 'amount1',
             'token2', 'token2_decimals', 'amount2'
         ];

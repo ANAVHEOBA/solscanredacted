@@ -1,0 +1,5970 @@
+{
+  "1744046298855-mock-tx-1744046298855": {
+    "id": "1744046298855-mock-tx-1744046298855",
+    "timestamp": 1744046298855,
+    "activity": {
+      "parsed": {
+        "blockId": 1744046298855,
+        "transactionId": "mock-tx-1744046298855",
+        "timestamp": 1744046298855,
+        "activityType": "swap",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "dex"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": []
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token2": "tokenB",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "priceImpact": 0.1,
+        "slippage": 0.05
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.8,
+        "details": "path, price"
+      },
+      "risk": {
+        "level": "high",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0.1,
+        "slippage": 0.05,
+        "executionQuality": 0
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744046298855,
+      "transactionHash": "mock-tx-1744046298855",
+      "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+    }
+  },
+  "1744046331882-mock-tx-1744046331882": {
+    "id": "1744046331882-mock-tx-1744046331882",
+    "timestamp": 1744046331882,
+    "activity": {
+      "parsed": {
+        "blockId": 1744046331882,
+        "transactionId": "mock-tx-1744046331882",
+        "timestamp": 1744046331882,
+        "activityType": "swap",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "dex"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": []
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token2": "tokenB",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "priceImpact": 0.1,
+        "slippage": 0.05
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.8,
+        "details": "path, price"
+      },
+      "risk": {
+        "level": "high",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0.1,
+        "slippage": 0.05,
+        "executionQuality": 0
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744046331882,
+      "transactionHash": "mock-tx-1744046331882",
+      "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+    }
+  },
+  "1744064182686-mock-tx-1744064182686": {
+    "id": "1744064182686-mock-tx-1744064182686",
+    "timestamp": 1744064182686,
+    "activity": {
+      "parsed": {
+        "blockId": 1744064182686,
+        "transactionId": "mock-tx-1744064182686",
+        "timestamp": 1744064182686,
+        "activityType": "swap",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "dex"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": []
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "mock-program",
+            "token1": "tokenA",
+            "token2": "tokenB",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "priceImpact": 0.1,
+        "slippage": 0.05
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.8,
+        "details": "path, price"
+      },
+      "risk": {
+        "level": "high",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0.1,
+        "slippage": 0.05,
+        "executionQuality": 0
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744064182686,
+      "transactionHash": "mock-tx-1744064182686",
+      "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+    }
+  },
+  "1744069694796-mock-tx-1744069694796": {
+    "id": "1744069694796-mock-tx-1744069694796",
+    "timestamp": 1744069694796,
+    "activity": {
+      "parsed": {
+        "blockId": 1744069694796,
+        "transactionId": "mock-tx-1744069694796",
+        "timestamp": 1744069694796,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "pool_address": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+              "program_address": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744069694796,
+      "transactionHash": "mock-tx-1744069694796",
+      "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+    }
+  },
+  "1744069722211-mock-tx-1744069722211": {
+    "id": "1744069722211-mock-tx-1744069722211",
+    "timestamp": 1744069722211,
+    "activity": {
+      "parsed": {
+        "blockId": 1744069722211,
+        "transactionId": "mock-tx-1744069722211",
+        "timestamp": 1744069722211,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "pool_address": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+              "program_address": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM",
+            "programAddress": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744069722211,
+      "transactionHash": "mock-tx-1744069722211",
+      "poolAddress": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
+    }
+  },
+  "1744069741394-mock-tx-1744069741394": {
+    "id": "1744069741394-mock-tx-1744069741394",
+    "timestamp": 1744069741394,
+    "activity": {
+      "parsed": {
+        "blockId": 1744069741394,
+        "transactionId": "mock-tx-1744069741394",
+        "timestamp": 1744069741394,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744069741394,
+      "transactionHash": "mock-tx-1744069741394",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070631981-mock-tx-1744070631981": {
+    "id": "1744070631981-mock-tx-1744070631981",
+    "timestamp": 1744070631981,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070631981,
+        "transactionId": "mock-tx-1744070631981",
+        "timestamp": 1744070631981,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070631981,
+      "transactionHash": "mock-tx-1744070631981",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070650888-mock-tx-1744070650888": {
+    "id": "1744070650888-mock-tx-1744070650888",
+    "timestamp": 1744070650888,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070650888,
+        "transactionId": "mock-tx-1744070650888",
+        "timestamp": 1744070650888,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070650888,
+      "transactionHash": "mock-tx-1744070650888",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070669847-mock-tx-1744070669847": {
+    "id": "1744070669847-mock-tx-1744070669847",
+    "timestamp": 1744070669847,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070669847,
+        "transactionId": "mock-tx-1744070669847",
+        "timestamp": 1744070669847,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070669847,
+      "transactionHash": "mock-tx-1744070669847",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070694457-mock-tx-1744070694457": {
+    "id": "1744070694457-mock-tx-1744070694457",
+    "timestamp": 1744070694457,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070694457,
+        "transactionId": "mock-tx-1744070694457",
+        "timestamp": 1744070694457,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070694457,
+      "transactionHash": "mock-tx-1744070694457",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070706596-mock-tx-1744070706596": {
+    "id": "1744070706596-mock-tx-1744070706596",
+    "timestamp": 1744070706596,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070706596,
+        "transactionId": "mock-tx-1744070706596",
+        "timestamp": 1744070706596,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070706596,
+      "transactionHash": "mock-tx-1744070706596",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070865892-mock-tx-1744070865892": {
+    "id": "1744070865892-mock-tx-1744070865892",
+    "timestamp": 1744070865892,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070865892,
+        "transactionId": "mock-tx-1744070865892",
+        "timestamp": 1744070865892,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070865892,
+      "transactionHash": "mock-tx-1744070865892",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744070958363-mock-tx-1744070958363": {
+    "id": "1744070958363-mock-tx-1744070958363",
+    "timestamp": 1744070958363,
+    "activity": {
+      "parsed": {
+        "blockId": 1744070958363,
+        "transactionId": "mock-tx-1744070958363",
+        "timestamp": 1744070958363,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744070958363,
+      "transactionHash": "mock-tx-1744070958363",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071083038-mock-tx-1744071083038": {
+    "id": "1744071083038-mock-tx-1744071083038",
+    "timestamp": 1744071083038,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071083038,
+        "transactionId": "mock-tx-1744071083038",
+        "timestamp": 1744071083038,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071083038,
+      "transactionHash": "mock-tx-1744071083038",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071275192-mock-tx-1744071275192": {
+    "id": "1744071275192-mock-tx-1744071275192",
+    "timestamp": 1744071275192,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071275192,
+        "transactionId": "mock-tx-1744071275192",
+        "timestamp": 1744071275192,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071275192,
+      "transactionHash": "mock-tx-1744071275192",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071308527-mock-tx-1744071308527": {
+    "id": "1744071308527-mock-tx-1744071308527",
+    "timestamp": 1744071308527,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071308527,
+        "transactionId": "mock-tx-1744071308527",
+        "timestamp": 1744071308527,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071308527,
+      "transactionHash": "mock-tx-1744071308527",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071327247-mock-tx-1744071327247": {
+    "id": "1744071327247-mock-tx-1744071327247",
+    "timestamp": 1744071327247,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071327247,
+        "transactionId": "mock-tx-1744071327247",
+        "timestamp": 1744071327247,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071327247,
+      "transactionHash": "mock-tx-1744071327247",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071357350-mock-tx-1744071357350": {
+    "id": "1744071357350-mock-tx-1744071357350",
+    "timestamp": 1744071357350,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071357350,
+        "transactionId": "mock-tx-1744071357350",
+        "timestamp": 1744071357350,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071357350,
+      "transactionHash": "mock-tx-1744071357350",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071365423-mock-tx-1744071365423": {
+    "id": "1744071365423-mock-tx-1744071365423",
+    "timestamp": 1744071365423,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071365423,
+        "transactionId": "mock-tx-1744071365423",
+        "timestamp": 1744071365423,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071365423,
+      "transactionHash": "mock-tx-1744071365423",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071473012-mock-tx-1744071473012": {
+    "id": "1744071473012-mock-tx-1744071473012",
+    "timestamp": 1744071473012,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071473012,
+        "transactionId": "mock-tx-1744071473012",
+        "timestamp": 1744071473012,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071473012,
+      "transactionHash": "mock-tx-1744071473012",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071768270-mock-tx-1744071768270": {
+    "id": "1744071768270-mock-tx-1744071768270",
+    "timestamp": 1744071768270,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071768270,
+        "transactionId": "mock-tx-1744071768270",
+        "timestamp": 1744071768270,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071768270,
+      "transactionHash": "mock-tx-1744071768270",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071782778-mock-tx-1744071782778": {
+    "id": "1744071782778-mock-tx-1744071782778",
+    "timestamp": 1744071782778,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071782778,
+        "transactionId": "mock-tx-1744071782778",
+        "timestamp": 1744071782778,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071782778,
+      "transactionHash": "mock-tx-1744071782778",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744071850381-mock-tx-1744071850381": {
+    "id": "1744071850381-mock-tx-1744071850381",
+    "timestamp": 1744071850381,
+    "activity": {
+      "parsed": {
+        "blockId": 1744071850381,
+        "transactionId": "mock-tx-1744071850381",
+        "timestamp": 1744071850381,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744071850381,
+      "transactionHash": "mock-tx-1744071850381",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072054203-mock-tx-1744072054203": {
+    "id": "1744072054203-mock-tx-1744072054203",
+    "timestamp": 1744072054203,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072054203,
+        "transactionId": "mock-tx-1744072054203",
+        "timestamp": 1744072054203,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072054203,
+      "transactionHash": "mock-tx-1744072054203",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072148409-mock-tx-1744072148409": {
+    "id": "1744072148409-mock-tx-1744072148409",
+    "timestamp": 1744072148409,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072148409,
+        "transactionId": "mock-tx-1744072148409",
+        "timestamp": 1744072148409,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072148409,
+      "transactionHash": "mock-tx-1744072148409",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072277735-mock-tx-1744072277735": {
+    "id": "1744072277735-mock-tx-1744072277735",
+    "timestamp": 1744072277735,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072277735,
+        "transactionId": "mock-tx-1744072277735",
+        "timestamp": 1744072277735,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072277735,
+      "transactionHash": "mock-tx-1744072277735",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072308544-mock-tx-1744072308544": {
+    "id": "1744072308544-mock-tx-1744072308544",
+    "timestamp": 1744072308544,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072308544,
+        "transactionId": "mock-tx-1744072308544",
+        "timestamp": 1744072308544,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072308544,
+      "transactionHash": "mock-tx-1744072308544",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072341370-mock-tx-1744072341370": {
+    "id": "1744072341370-mock-tx-1744072341370",
+    "timestamp": 1744072341370,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072341370,
+        "transactionId": "mock-tx-1744072341370",
+        "timestamp": 1744072341370,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072341370,
+      "transactionHash": "mock-tx-1744072341370",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072678573-mock-tx-1744072678573": {
+    "id": "1744072678573-mock-tx-1744072678573",
+    "timestamp": 1744072678573,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072678573,
+        "transactionId": "mock-tx-1744072678573",
+        "timestamp": 1744072678573,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072678573,
+      "transactionHash": "mock-tx-1744072678573",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072695660-mock-tx-1744072695660": {
+    "id": "1744072695660-mock-tx-1744072695660",
+    "timestamp": 1744072695660,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072695660,
+        "transactionId": "mock-tx-1744072695660",
+        "timestamp": 1744072695660,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072695660,
+      "transactionHash": "mock-tx-1744072695660",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072716535-mock-tx-1744072716535": {
+    "id": "1744072716535-mock-tx-1744072716535",
+    "timestamp": 1744072716535,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072716535,
+        "transactionId": "mock-tx-1744072716535",
+        "timestamp": 1744072716535,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072716535,
+      "transactionHash": "mock-tx-1744072716535",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072792361-mock-tx-1744072792361": {
+    "id": "1744072792361-mock-tx-1744072792361",
+    "timestamp": 1744072792361,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072792361,
+        "transactionId": "mock-tx-1744072792361",
+        "timestamp": 1744072792361,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072792361,
+      "transactionHash": "mock-tx-1744072792361",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072825548-mock-tx-1744072825548": {
+    "id": "1744072825548-mock-tx-1744072825548",
+    "timestamp": 1744072825548,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072825548,
+        "transactionId": "mock-tx-1744072825548",
+        "timestamp": 1744072825548,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072825548,
+      "transactionHash": "mock-tx-1744072825548",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744072912023-mock-tx-1744072912023": {
+    "id": "1744072912023-mock-tx-1744072912023",
+    "timestamp": 1744072912023,
+    "activity": {
+      "parsed": {
+        "blockId": 1744072912023,
+        "transactionId": "mock-tx-1744072912023",
+        "timestamp": 1744072912023,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744072912023,
+      "transactionHash": "mock-tx-1744072912023",
+      "poolAddress": "unknown"
+    }
+  },
+  "1744073020559-mock-tx-1744073020559": {
+    "id": "1744073020559-mock-tx-1744073020559",
+    "timestamp": 1744073020559,
+    "activity": {
+      "parsed": {
+        "blockId": 1744073020559,
+        "transactionId": "mock-tx-1744073020559",
+        "timestamp": 1744073020559,
+        "activityType": "ACTIVITY_AGG_TOKEN_SWAP",
+        "fromAddress": "mock-address",
+        "platforms": [
+          "raydium"
+        ],
+        "sources": [
+          "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc"
+        ],
+        "amountInfo": {
+          "token1": "tokenA",
+          "token1Decimals": 9,
+          "amount1": "1000000000",
+          "token2": "tokenB",
+          "token2Decimals": 9,
+          "amount2": "950000000",
+          "routers": [
+            {
+              "token1": "tokenA",
+              "token1_decimals": 9,
+              "amount1": "1000000000",
+              "token2": "tokenB",
+              "token2_decimals": 9,
+              "amount2": "950000000"
+            }
+          ]
+        }
+      },
+      "routerPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "token1Decimals": 9,
+            "amount1": "1000000000",
+            "token2": "tokenB",
+            "token2Decimals": 9,
+            "amount2": "950000000"
+          }
+        ],
+        "totalAmount1": "1000000000",
+        "totalAmount2": "950000000",
+        "hops": 1
+      },
+      "normalizedPath": {
+        "path": [
+          {
+            "poolAddress": "unknown",
+            "programAddress": "unknown",
+            "token1": "tokenA",
+            "amount1": {
+              "raw": "1000000000",
+              "normalized": 1,
+              "decimals": 9
+            },
+            "token2": "tokenB",
+            "amount2": {
+              "raw": "950000000",
+              "normalized": 0.95,
+              "decimals": 9
+            }
+          }
+        ],
+        "totalAmount1": {
+          "raw": "1000000000",
+          "normalized": 1,
+          "decimals": 9
+        },
+        "totalAmount2": {
+          "raw": "950000000",
+          "normalized": 0.95,
+          "decimals": 9
+        },
+        "hops": 1
+      },
+      "analysis": {
+        "isDirect": true,
+        "isAggregated": false,
+        "tokenPath": [
+          "tokenA",
+          "tokenB"
+        ],
+        "liquidityPools": [
+          "unknown"
+        ]
+      }
+    },
+    "flowAnalysis": {
+      "tokenFlow": {
+        "inputToken": "tokenA",
+        "outputToken": "tokenB",
+        "inputAmount": 1,
+        "outputAmount": 0.95,
+        "path": [
+          "tokenA",
+          "tokenB"
+        ]
+      },
+      "liquidityImpact": {
+        "poolAddresses": [
+          "unknown"
+        ],
+        "volume": 1,
+        "direction": "swap"
+      },
+      "efficiency": {
+        "hops": 1,
+        "gasUsed": 150000,
+        "optimalPath": false
+      }
+    },
+    "patternAnalysis": {
+      "tradingPattern": {
+        "type": "normal",
+        "confidence": 0,
+        "indicators": []
+      },
+      "anomaly": {
+        "detected": true,
+        "type": "path",
+        "severity": 0.3,
+        "details": "path"
+      },
+      "risk": {
+        "level": "medium",
+        "factors": [
+          "suboptimal_path",
+          "anomaly_path"
+        ]
+      }
+    },
+    "impactAnalysis": {
+      "marketImpact": {
+        "priceImpact": 0,
+        "slippage": 0,
+        "executionQuality": 1
+      },
+      "liquidityImpact": {
+        "poolReserves": {
+          "before": {
+            "token1": 100,
+            "token2": 95
+          },
+          "after": {
+            "token1": 100,
+            "token2": 95
+          }
+        },
+        "depth": 95,
+        "concentration": 1.0526315789473684
+      },
+      "economicImpact": {
+        "fees": 0.003,
+        "value": 1,
+        "efficiency": 0.675
+      }
+    },
+    "metadata": {
+      "blockNumber": 1744073020559,
+      "transactionHash": "mock-tx-1744073020559",
+      "poolAddress": "unknown"
+    }
+  }
+}

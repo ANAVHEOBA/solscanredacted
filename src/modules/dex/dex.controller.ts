@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
 import { DexService } from './dex.service';
+import { DexAnalyticsService } from './services/dex-analytics.service';
 import { 
     DefiActivityParams, 
     BalanceChangeParams, 
@@ -10,189 +10,147 @@ import {
     AccountMetadataParams
 } from './dex.interface';
 import { logger } from '../../utils/logger';
+import { BalanceChangeAnalyzer } from './analyzers/balance-change.analyzer';
+import { TransactionAnalyzer } from './analyzers/transaction.analyzer';
 
 export class DexController {
-    constructor(private readonly dexService: DexService) {}
+    private readonly balanceChangeAnalyzer: BalanceChangeAnalyzer;
+    private readonly transactionAnalyzer: TransactionAnalyzer;
 
-    async getDefiActivities(req: Request, res: Response) {
+    constructor(
+        private readonly dexService: DexService,
+        private readonly dexAnalyticsService: DexAnalyticsService
+    ) {
+        this.balanceChangeAnalyzer = new BalanceChangeAnalyzer();
+        this.transactionAnalyzer = new TransactionAnalyzer();
+    }
+
+    async getDefiActivities(params: DefiActivityParams) {
         try {
-            const params: DefiActivityParams = req.query as any;
             const activities = await this.dexService.getDefiActivities(params);
-            res.json(activities);
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            return { success: true, data: activities };
+        } catch (error) {
+            logger.error('Error in getDefiActivities:', error);
+            return { success: false, error: 'Failed to fetch DeFi activities' };
         }
     }
 
-    async getBalanceChanges(req: Request, res: Response) {
+    async getBalanceChanges(params: BalanceChangeParams) {
         try {
-            const params: BalanceChangeParams = req.query as any;
-            const activities = await this.dexService.getBalanceChanges(params);
-            res.json(activities);
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            const changes = await this.dexService.getBalanceChanges(params);
+            const analysis = this.balanceChangeAnalyzer.analyzeChanges(changes);
+            return { 
+                success: true, 
+                data: {
+                    changes,
+                    analysis
+                }
+            };
+        } catch (error) {
+            logger.error('Error in getBalanceChanges:', error);
+            return { success: false, error: 'Failed to fetch balance changes' };
         }
     }
 
-    async getTransactions(req: Request, res: Response) {
+    async getTransactions(params: TransactionParams) {
         try {
-            const params: TransactionParams = req.query as any;
             const transactions = await this.dexService.getTransactions(params);
-            res.json({ success: true, data: transactions });
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
+            logger.info('Received transactions from service:', {
+                transactionsReceived: !!transactions,
+                isArray: Array.isArray(transactions),
+                length: transactions?.length,
+                sample: transactions?.[0]
             });
+
+            if (!Array.isArray(transactions)) {
+                logger.error('Invalid transactions data:', transactions);
+                return { success: false, error: 'Invalid transactions data format' };
+            }
+
+            const analysis = this.transactionAnalyzer.analyzeTransactions(transactions);
+            return { 
+                success: true, 
+                data: {
+                    transactions,
+                    analysis
+                }
+            };
+        } catch (error) {
+            logger.error('Error in getTransactions:', error);
+            return { success: false, error: 'Failed to fetch transactions' };
         }
     }
 
-    async getPortfolio(req: Request, res: Response) {
+    async getPortfolio(params: PortfolioParams) {
         try {
-            const params: PortfolioParams = req.query as any;
             const portfolio = await this.dexService.getPortfolio(params);
-            res.json({ success: true, data: portfolio });
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            return { success: true, data: portfolio };
+        } catch (error) {
+            logger.error('Error in getPortfolio:', error);
+            return { success: false, error: 'Failed to fetch portfolio' };
         }
     }
 
-    async getTokenAccounts(req: Request, res: Response) {
+    async getTokenAccounts(params: TokenAccountParams) {
         try {
-            const params: TokenAccountParams = req.query as any;
             const accounts = await this.dexService.getTokenAccounts(params);
-            res.json({ success: true, data: accounts });
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            return { success: true, data: accounts };
+        } catch (error) {
+            logger.error('Error in getTokenAccounts:', error);
+            return { success: false, error: 'Failed to fetch token accounts' };
         }
     }
 
-    async getAccountDetail(req: Request, res: Response) {
+    async getAccountDetail(params: AccountDetailParams) {
         try {
-            const params: AccountDetailParams = req.query as any;
             const detail = await this.dexService.getAccountDetail(params);
-            res.json({ success: true, data: detail });
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            return { success: true, data: detail };
+        } catch (error) {
+            logger.error('Error in getAccountDetail:', error);
+            return { success: false, error: 'Failed to fetch account detail' };
         }
     }
 
-    async getAccountMetadata(req: Request, res: Response) {
+    async getAccountMetadata(params: AccountMetadataParams) {
         try {
-            const params: AccountMetadataParams = req.query as any;
             const metadata = await this.dexService.getAccountMetadata(params);
-            res.json({ success: true, data: metadata });
-        } catch (error: any) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-            res.status(500).json({ 
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
+            return { success: true, data: metadata };
+        } catch (error) {
+            logger.error('Error in getAccountMetadata:', error);
+            return { success: false, error: 'Failed to fetch account metadata' };
         }
     }
 
-    public async getLiquidityFlows(req: Request, res: Response): Promise<void> {
+    async getLiquidityFlows(params: { poolAddress: string; startTime?: number; endTime?: number }) {
         try {
-            const { poolAddress, startTime, endTime } = req.query;
-
-            if (!poolAddress) {
-                res.status(400).json({
-                    success: false,
-                    error: 'Pool address is required'
-                });
-                return;
-            }
-
-            const result = await this.dexService.getLiquidityFlows({
-                poolAddress: poolAddress as string,
-                startTime: startTime ? parseInt(startTime as string) : undefined,
-                endTime: endTime ? parseInt(endTime as string) : undefined
-            });
-
-            if (!result.success) {
-                res.status(404).json(result);
-                return;
-            }
-
-            res.json(result);
+            const flows = await this.dexAnalyticsService.getLiquidityFlows(
+                params.poolAddress,
+                params.startTime,
+                params.endTime
+            );
+            return { success: true, data: flows };
         } catch (error) {
             logger.error('Error in getLiquidityFlows:', error);
-            res.status(500).json({
-                success: false,
-                error: 'Internal server error'
-            });
+            return { success: false, error: 'Failed to analyze liquidity flows' };
         }
     }
 
-    public async getPoolState(req: Request, res: Response): Promise<void> {
+    async getPoolState(poolAddress: string) {
         try {
-            const { poolAddress } = req.query;
-
-            if (!poolAddress) {
-                res.status(400).json({
-                    success: false,
-                    error: 'Pool address is required'
-                });
-                return;
-            }
-
-            const result = await this.dexService.getPoolState(poolAddress as string);
-
-            if (!result.success) {
-                res.status(404).json(result);
-                return;
-            }
-
-            res.json(result);
+            const state = await this.dexAnalyticsService.getPoolState(poolAddress);
+            return { success: true, data: state };
         } catch (error) {
             logger.error('Error in getPoolState:', error);
-            res.status(500).json({
-                success: false,
-                error: 'Internal server error'
-            });
+            return { success: false, error: 'Failed to get pool state' };
         }
     }
 
-    public async getTopPools(req: Request, res: Response): Promise<void> {
+    async getBalanceAnalytics(address: string) {
         try {
-            const { limit } = req.query;
-            const parsedLimit = limit ? parseInt(limit as string) : undefined;
-
-            const result = await this.dexService.getTopPools(parsedLimit);
-
-            if (!result.success) {
-                res.status(500).json(result);
-                return;
-            }
-
-            res.json(result);
+            return await this.dexAnalyticsService.getBalanceAnalytics(address);
         } catch (error) {
-            logger.error('Error in getTopPools:', error);
-            res.status(500).json({
-                success: false,
-                error: 'Internal server error'
-            });
+            logger.error('Error in getBalanceAnalytics:', error);
+            return { success: false, error: 'Failed to analyze balance changes' };
         }
     }
 }

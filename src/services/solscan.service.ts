@@ -1,5 +1,8 @@
 // src/services/solscan.service.ts
 
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { logger } from '../utils/logger';
+import { apiConfig } from '../config/api.config';
 import { 
     DefiActivityParams, 
     DefiActivityResponse, 
@@ -56,148 +59,177 @@ import {
     MarketInfo,
     MarketVolume
 } from '../modules/market/market.interface';
-import { logger } from '../utils/logger';
+
+interface SolscanResponse<T> {
+    success: boolean;
+    data: T;
+}
 
 export class SolscanService {
-    private readonly baseUrl = 'https://pro-api.solscan.io/v2.0';
+    private readonly client: AxiosInstance;
     private readonly maxRetries = 3;
-    private readonly retryDelay = 1000; // 1 second
+    private readonly baseRetryDelay = 1000; // 1 second
+    private readonly maxRetryDelay = 10000; // 10 seconds
 
-    constructor(private readonly apiKey: string) {}
+    constructor(apiKey: string) {
+        this.client = axios.create({
+            baseURL: apiConfig.solscanBaseUrl,
+            timeout: 10000, // Reduced timeout to 10 seconds
+            headers: {
+                'token': apiKey,
+                'Content-Type': 'application/json'
+            }
+        });
 
-    private async fetchWithRetry(endpoint: string, params: Record<string, any> = {}, retries = 0): Promise<any> {
+        // Add response interceptor for logging
+        this.client.interceptors.response.use(
+            (response) => {
+                logger.debug('[SolscanService] API Response:', {
+                    url: response.config.url,
+                    status: response.status,
+                    data: response.data
+                });
+                return response;
+            },
+            (error) => {
+                logger.error('[SolscanService] API Error:', {
+                    url: error.config?.url,
+                    status: error.response?.status,
+                    data: error.response?.data,
+                    message: error.message,
+                    code: error.code
+                });
+                return Promise.reject(error);
+            }
+        );
+    }
+
+    private async fetchWithRetry<T>(endpoint: string, params: any, retries = this.maxRetries): Promise<T> {
+        const startTime = Date.now();
+        logger.info('[SolscanService] Request started', {
+            endpoint,
+            params,
+            retries,
+            timestamp: new Date().toISOString()
+        });
+
         try {
-            const queryString = new URLSearchParams(params).toString();
-            const url = `${this.baseUrl}${endpoint}${queryString ? '?' + queryString : ''}`;
-
-            logger.debug(`Making request to: ${url}`);
-
-            const response = await fetch(url, {
-                headers: {
-                    'token': this.apiKey,
-                    'Accept': 'application/json'
-                }
+            const response = await this.client.get<SolscanResponse<T>>(endpoint, { params });
+            
+            logger.info('[SolscanService] Request successful', {
+                endpoint,
+                duration: Date.now() - startTime
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.data.success) {
+                throw new Error(`API returned success: false - ${JSON.stringify(response.data)}`);
             }
 
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            if (retries < this.maxRetries) {
-                logger.warn(`Retrying Solscan API call (attempt ${retries + 1}/${this.maxRetries})`);
-                await new Promise(resolve => setTimeout(resolve, this.retryDelay * (retries + 1)));
-                return this.fetchWithRetry(endpoint, params, retries + 1);
-            }
+            return response.data.data;
+        } catch (error: any) {
+            const duration = Date.now() - startTime;
             
-            logger.error('Solscan API call failed after retries:', error);
+            // Handle specific error cases
+            if ((error.code === 'ETIMEDOUT' || error.code === 'ECONNABORTED' || error.response?.status === 429) && retries > 0) {
+                const retryDelay = Math.min(
+                    this.baseRetryDelay * Math.pow(2, this.maxRetries - retries),
+                    this.maxRetryDelay
+                );
+
+                logger.warn('[SolscanService] Request failed, retrying...', {
+                    retries,
+                    retryDelay,
+                    errorCode: error.code,
+                    status: error.response?.status
+                });
+
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
+                return this.fetchWithRetry(endpoint, params, retries - 1);
+            }
+
+            logger.error('[SolscanService] Request failed', {
+                endpoint,
+                error: error.message,
+                code: error.code,
+                status: error.response?.status,
+                duration
+            });
+
             throw error;
         }
     }
 
     async getDefiActivities(params: DefiActivityParams): Promise<DefiActivityResponse> {
         try {
-        const queryParams = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-            if (value) {
-                if (Array.isArray(value)) {
-                        value.forEach(v => queryParams.append(key, v.toString()));
-                } else {
-                    queryParams.append(key, value.toString());
-                }
-            }
-        });
-
-            const response = await this.fetchWithRetry('/account/defi/activities', queryParams);
-            return {
-                success: true,
-                data: response.data || []
-            };
+            const data = await this.fetchWithRetry<DefiActivityResponse['data']>(
+                '/account/defi/activities',
+                params
+            );
+            return { success: true, data };
         } catch (error) {
-            logger.error(`Failed to fetch defi activities for ${params.address}:`, error);
-            return {
-                success: false,
-                data: []
-            };
+            logger.error('[SolscanService] getDefiActivities failed', {
+                params,
+                error: error instanceof Error ? error.message : 'Unknown error'
+            });
+            throw error;
         }
     }
 
     async getBalanceChanges(params: BalanceChangeParams): Promise<BalanceChangeResponse> {
-        const queryParams = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-            if (value) {
-                if (Array.isArray(value)) {
-                    value.forEach(v => queryParams.append(key, v.toString()));
-                } else {
-                    queryParams.append(key, value.toString());
-                }
-            }
-        });
-    
-        return await this.fetchWithRetry('/v2/account/balance_change', queryParams);
+        try {
+            const data = await this.fetchWithRetry<BalanceChangeResponse['data']>(
+                '/account/balance_change',
+                params
+            );
+            return { success: true, data };
+        } catch (error) {
+            logger.error('[SolscanService] getBalanceChanges failed', {
+                params,
+                error: error instanceof Error ? error.message : 'Unknown error'
+            });
+            throw error;
+        }
     }
 
     async getTransactions(params: TransactionParams): Promise<TransactionResponse> {
-        const queryParams = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-            if (value) {
-                queryParams.append(key, value.toString());
-            }
-        });
-
-        return await this.fetchWithRetry('/v2/account/transactions', queryParams);
+        try {
+            const data = await this.fetchWithRetry<TransactionResponse['data']>(
+                '/account/transactions',
+                params
+            );
+            return { success: true, data };
+        } catch (error) {
+            logger.error('[SolscanService] getTransactions failed', {
+                params,
+                error: error instanceof Error ? error.message : 'Unknown error',
+                code: (error as any)?.code
+            });
+            throw error;
+        }
     }
 
     async getPortfolio(params: PortfolioParams): Promise<PortfolioResponse> {
-        const queryParams = new URLSearchParams();
-        queryParams.append('address', params.address);
-
-        return await this.fetchWithRetry('/v2/account/portfolio', queryParams);
+        return this.fetchWithRetry<PortfolioResponse>('/account/portfolio', params);
     }
 
     async getTokenAccounts(params: TokenAccountParams): Promise<TokenAccountResponse> {
-        const queryParams = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-            if (value !== undefined) {
-                queryParams.append(key, value.toString());
-            }
-        });
-
-        return await this.fetchWithRetry('/v2/account/token-accounts', queryParams);
+        return this.fetchWithRetry<TokenAccountResponse>('/account/token-accounts', params);
     }
 
     async getAccountDetail(params: AccountDetailParams): Promise<AccountDetailResponse> {
-        const queryParams = new URLSearchParams();
-        queryParams.append('address', params.address);
-
-        return await this.fetchWithRetry('/v2/account/detail', queryParams);
+        return this.fetchWithRetry<AccountDetailResponse>('/account/detail', params);
     }
 
     async getAccountMetadata(params: AccountMetadataParams): Promise<AccountMetadataResponse> {
-        const queryParams = new URLSearchParams();
-        queryParams.append('address', params.address);
-
-        return await this.fetchWithRetry('/v2/account/metadata', queryParams);
+        return this.fetchWithRetry<AccountMetadataResponse>('/account/metadata', params);
     }
 
     async getTokenMeta(params: TokenMetaParams): Promise<TokenMetaResponse> {
-        const queryParams = new URLSearchParams();
-        queryParams.append('address', params.address);
-
-        return await this.fetchWithRetry('/v2/token/meta', queryParams);
+        return this.fetchWithRetry<TokenMetaResponse>('/token/meta', params);
     }
 
     async getTokenPrice(params: TokenPriceParams): Promise<TokenPriceResponse> {
-        const queryParams = new URLSearchParams();
-        Object.entries(params).forEach(([key, value]) => {
-            if (value !== undefined) {
-                queryParams.append(key, value.toString());
-            }
-        });
-
-        return await this.fetchWithRetry('/v2/token/price', queryParams);
+        return this.fetchWithRetry<TokenPriceResponse>('/token/price', params);
     }
 
     async getTokenMarkets(params: TokenMarketsParams): Promise<TokenMarketsResponse> {

@@ -1,136 +1,285 @@
-import { Controller, Get, Query, Param } from '@nestjs/common';
-import { ActivityDatabase } from '../storage/activity.database';
-import { PoolStateDatabase } from '../storage/pool.state.database';
-import { CacheLayer } from '../storage/cache.layer';
+import { Request, Response } from 'express';
+import { DexController } from '../dex.controller';
 import { logger } from '../../../utils/logger';
+import { 
+    DefiActivityParams,
+    BalanceChangeParams,
+    TransactionParams,
+    PortfolioParams,
+    TokenAccountParams,
+    AccountDetailParams,
+    AccountMetadataParams
+} from '../dex.interface';
 
-@Controller('dex')
 export class DexRestController {
-    constructor(
-        private readonly activityDatabase: ActivityDatabase,
-        private readonly poolStateDatabase: PoolStateDatabase,
-        private readonly cacheLayer: CacheLayer
-    ) {}
+    constructor(private readonly dexController: DexController) {}
 
-    @Get('activities/:id')
-    async getActivity(@Param('id') id: string) {
+    async getDefiActivities(req: Request, res: Response) {
+        const startTime = Date.now();
+        logger.info('[DexRestController] getDefiActivities started', { 
+            query: req.query,
+            timestamp: new Date().toISOString()
+        });
+
         try {
-            // Try cache first
-            const cached = await this.cacheLayer.getActivity(id);
-            if (cached) {
-                return cached;
+            const params: DefiActivityParams = req.query as any;
+            const result = await this.dexController.getDefiActivities(params);
+            
+            logger.info('[DexRestController] Successfully got activities', {
+                success: result.success,
+                duration: Date.now() - startTime
+            });
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
             }
-
-            // If not in cache, get from database
-            const activity = await this.activityDatabase.getActivity(id);
-            if (activity) {
-                // Cache the result
-                await this.cacheLayer.setActivity(id, activity);
-            }
-            return activity;
+            
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting activity:', error);
-            throw error;
+            logger.error('[DexRestController] Error in getDefiActivities', {
+                error: error instanceof Error ? error.message : 'Unknown error',
+                stack: error instanceof Error ? error.stack : undefined,
+                duration: Date.now() - startTime
+            });
+            
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
         }
     }
 
-    @Get('activities')
-    async getActivitiesByPool(
-        @Query('pool') poolAddress: string,
-        @Query('startTime') startTime?: number,
-        @Query('endTime') endTime?: number
-    ) {
+    async getBalanceChanges(req: Request, res: Response) {
         try {
-            return await this.activityDatabase.getActivitiesByPool(
-                poolAddress,
-                startTime,
-                endTime
-            );
+            const params: BalanceChangeParams = req.query as any;
+            const result = await this.dexController.getBalanceChanges(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
+            }
+            
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting activities by pool:', error);
-            throw error;
+            logger.error('Error in getBalanceChanges:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
         }
     }
 
-    @Get('pools/:address')
-    async getPoolState(@Param('address') address: string) {
+    async getTransactions(req: Request, res: Response) {
         try {
-            // Try cache first
-            const cached = await this.cacheLayer.getPoolState(address);
-            if (cached) {
-                return cached;
+            const params: TransactionParams = req.query as any;
+            const result = await this.dexController.getTransactions(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
+            }
+            
+            res.json(result);
+        } catch (error) {
+            logger.error('Error in getTransactions:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    async getPortfolio(req: Request, res: Response) {
+        try {
+            const params: PortfolioParams = req.query as any;
+            const result = await this.dexController.getPortfolio(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
             }
 
-            // If not in cache, get from database
-            const state = await this.poolStateDatabase.getPoolState(address);
-            if (state) {
-                // Cache the result
-                await this.cacheLayer.setPoolState(address, state);
+            res.json(result);
+        } catch (error) {
+            logger.error('Error in getPortfolio:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    async getTokenAccounts(req: Request, res: Response) {
+        try {
+            const params: TokenAccountParams = req.query as any;
+            const result = await this.dexController.getTokenAccounts(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
             }
-            return state;
+            
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting pool state:', error);
-            throw error;
+            logger.error('Error in getTokenAccounts:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
         }
     }
 
-    @Get('pools/:address/metrics')
-    async getPoolMetrics(@Param('address') address: string) {
+    async getAccountDetail(req: Request, res: Response) {
         try {
-            // Try cache first
-            const cached = await this.cacheLayer.getPoolMetrics(address);
-            if (cached) {
-                return cached;
+            const params: AccountDetailParams = req.query as any;
+            const result = await this.dexController.getAccountDetail(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
+            }
+            
+            res.json(result);
+        } catch (error) {
+            logger.error('Error in getAccountDetail:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    async getAccountMetadata(req: Request, res: Response) {
+        try {
+            const params: AccountMetadataParams = req.query as any;
+            const result = await this.dexController.getAccountMetadata(params);
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
+            }
+            
+            res.json(result);
+        } catch (error) {
+            logger.error('Error in getAccountMetadata:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    async getLiquidityFlows(req: Request, res: Response) {
+        const startTime = Date.now();
+        logger.info('[DexRestController] getLiquidityFlows started', { 
+            query: req.query,
+            timestamp: new Date().toISOString()
+        });
+
+        try {
+            const { poolAddress, startTime: startTimeParam, endTime: endTimeParam } = req.query;
+
+            if (!poolAddress) {
+                res.status(400).json({
+                    success: false,
+                    error: 'Pool address is required'
+                });
+                return;
             }
 
-            // If not in cache, get from database
-            const metrics = await this.poolStateDatabase.getPoolMetrics(address);
-            if (metrics) {
-                // Cache the result
-                await this.cacheLayer.setPoolMetrics(address, metrics);
+            const poolAddressStr = poolAddress.toString().trim();
+            const result = await this.dexController.getLiquidityFlows({
+                poolAddress: poolAddressStr,
+                startTime: startTimeParam ? parseInt(startTimeParam as string) : undefined,
+                endTime: endTimeParam ? parseInt(endTimeParam as string) : undefined
+            });
+
+            logger.info('[DexRestController] getLiquidityFlows completed', {
+                success: result.success,
+                duration: Date.now() - startTime,
+                timestamp: new Date().toISOString()
+            });
+
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
             }
-            return metrics;
+
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting pool metrics:', error);
-            throw error;
+            logger.error('[DexRestController] Error in getLiquidityFlows:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
         }
     }
 
-    @Get('pools/top/volume')
-    async getTopPoolsByVolume(@Query('limit') limit: number = 10) {
+    async getPoolState(req: Request, res: Response) {
         try {
-            return await this.poolStateDatabase.getTopPoolsByVolume(limit);
+            const { poolAddress } = req.query;
+
+            if (!poolAddress) {
+                res.status(400).json({
+                    success: false,
+                    error: 'Pool address is required'
+                });
+                return;
+            }
+
+            const result = await this.dexController.getPoolState(poolAddress as string);
+
+            if (!result.success) {
+                res.status(404).json(result);
+                return;
+            }
+
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting top pools by volume:', error);
-            throw error;
+            logger.error('Error in getPoolState:', error);
+            res.status(500).json({
+                success: false,
+                error: 'Internal server error'
+            });
         }
     }
 
-    @Get('pools/top/liquidity')
-    async getTopPoolsByLiquidity(@Query('limit') limit: number = 10) {
+    async getBalanceAnalytics(req: Request, res: Response) {
         try {
-            return await this.poolStateDatabase.getTopPoolsByLiquidity(limit);
-        } catch (error) {
-            logger.error('Error getting top pools by liquidity:', error);
-            throw error;
-        }
-    }
+            const { address } = req.query;
+            
+            if (!address) {
+                res.status(400).json({
+                    success: false,
+                    error: 'Address is required'
+                });
+                return;
+            }
 
-    @Get('pools/:address/history')
-    async getPoolHistory(
-        @Param('address') address: string,
-        @Query('startTime') startTime?: number,
-        @Query('endTime') endTime?: number
-    ) {
-        try {
-            return await this.poolStateDatabase.getPoolHistory(
-                address,
-                startTime,
-                endTime
-            );
+            const result = await this.dexController.getBalanceAnalytics(address.toString());
+            
+            if (!result.success) {
+                res.status(500).json(result);
+                return;
+            }
+            
+            res.json(result);
         } catch (error) {
-            logger.error('Error getting pool history:', error);
-            throw error;
+            logger.error('Error in getBalanceAnalytics:', error);
+            res.status(500).json({ 
+                success: false,
+                error: 'Internal server error',
+                timestamp: new Date().toISOString()
+            });
         }
     }
 } 

@@ -1,51 +1,163 @@
-curl "http://localhost:3000/api/dex/defi-activities?address=ob2htHLoCu2P6tX7RrNVtiG1mYTas8NGJEVLaFEUngk&page=1&page_size=10" | json_pp
+# Get DEX activities with analysis
+curl "http://localhost:3000/api/dex/defi-activities?address=ob2htHLoCu2P6tX7RrNVtiG1mYTas8NGJEVLaFEUngk&page=1&page_size=10"
 
+# Get liquidity flow analysis
+curl "http://localhost:3000/api/dex/liquidity-flows?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
 
-# Get liquidity analytics for a pool
-curl "http://localhost:3000/api/analytics/liquidity?pool_address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
-
-# Get volume analytics
-curl "http://localhost:3000/api/analytics/volume?pool_address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
-
-# Get price analytics
-curl "http://localhost:3000/api/analytics/price?token_address=HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3" | json_pp
+# Get pool state with cached data
+curl "http://localhost:3000/api/dex/pool-state?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"
 
 
 
+# Get liquidity flows for a pool
+curl "http://localhost:3000/api/dex/liquidity-flows?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
 
-# First, start a WebSocket connection
-curl -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: localhost:3000" -H "Origin: http://localhost:3000" http://localhost:3000/ws
+# Get pool state
+curl "http://localhost:3000/api/dex/pool-state?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
 
-# Then in another terminal, subscribe to a pool
-curl -X POST "http://localhost:3000/api/analytics/subscribe" -H "Content-Type: application/json" -d '{"pool_address": "8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"}' | json_pp
-
-
-
-curl "http://localhost:3000/api/analytics/arbitrage?token1=HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3&token2=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v" | json_pp
+# Get DeFi activities
+curl "http://localhost:3000/api/dex/defi-activities?address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
 
 
 
 
 
-curl "http://localhost:3000/api/analytics/patterns?pool_address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM&timeframe=24h" | json_pp
-
-
-# Get active alerts
-curl "http://localhost:3000/api/analytics/alerts" | json_pp
-
-# Get alerts for a specific pool
-curl "http://localhost:3000/api/analytics/alerts?pool_address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
-
-
-
-# Get cached pool state
-curl "http://localhost:3000/api/dex/pools/8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM/state" | json_pp
-
-# Get cached activities
-curl "http://localhost:3000/api/dex/activities?pool_address=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
 
 
 
 
-# Make multiple rapid requests to test rate limiting
-for i in {1..20}; do curl "http://localhost:3000/api/dex/defi-activities?address=ob2htHLoCu2P6tX7RrNVtiG1mYTas8NGJEVLaFEUngk&page=1&page_size=10" | json_pp; sleep 0.1; done
+
+
+
+
+
+
+
+
+
+
+
+
+a@a:~/solscanredacted$ # Get liquidity flows for a pool
+curl "http://localhost:3000/api/dex/liquidity-flows?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   481  100   481    0     0  10141      0 --:--:-- --:--:-- --:--:-- 10234
+{
+   "data" : [
+      {
+         "efficiency" : {
+            "gasUsed" : 150000,
+            "optimalPath" : false
+         },
+         "impact" : {
+            "depth" : 95,
+            "poolReserves" : 100,
+            "priceImpact" : 0.1,
+            "slippage" : 0.05
+         },
+         "tokenFlow" : {
+            "inflow" : 1,
+            "netFlow" : -0.05,
+            "outflow" : 0.95,
+            "path" : [
+               "tokenA",
+               "tokenB"
+            ]
+         }
+      },
+      {
+         "efficiency" : {
+            "gasUsed" : 150000,
+            "optimalPath" : false
+         },
+         "impact" : {
+            "depth" : 95,
+            "poolReserves" : 100,
+            "priceImpact" : 0.1,
+            "slippage" : 0.05
+         },
+         "tokenFlow" : {
+            "inflow" : 1,
+            "netFlow" : -0.05,
+            "outflow" : 0.95,
+            "path" : [
+               "tokenA",
+               "tokenB"
+            ]
+         }
+      }
+   ],
+   "success" : true
+}
+
+
+
+
+
+
+
+
+
+
+a@a:~/solscanredacted$ # Get pool state
+curl "http://localhost:3000/api/dex/pool-state?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM" | json_pp
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   367  100   367    0     0  18180      0 --:--:-- --:--:-- --:--:-- 19315
+{
+   "data" : {
+      "anomalies" : [
+         {
+            "details" : "path, price",
+            "detected" : true,
+            "severity" : 0.8,
+            "type" : "path"
+         },
+         {
+            "details" : "path, price",
+            "detected" : true,
+            "severity" : 0.8,
+            "type" : "path"
+         }
+      ],
+      "riskFactors" : [
+         "suboptimal_path",
+         "anomaly_path"
+      ],
+      "riskLevel" : "high",
+      "tradingPatterns" : [
+         {
+            "confidence" : 0,
+            "indicators" : [],
+            "type" : "normal"
+         },
+         {
+            "confidence" : 0,
+            "indicators" : [],
+            "type" : "normal"
+         }
+      ]
+   },
+   "success" : true
+}
+a@a:~/solscanredacted$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a@a:~/solscanredacted$ curl "http://localhost:3000/api/dex/liquidity-flows?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM&interval=1h"
+{"success":true,"data":{"success":true,"data":[{"timestamp":1744045200000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":2,"count":2},{"timestamp":1744063200000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":1,"count":1},{"timestamp":1744066800000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volua@a:~/solscanredacted$ curl "http://localhost:3000/api/dex/pool-state?poolAddress=8erNF5u3CHrqZJXtkfY8CjSxFYF1yqHmN8uDbAhk6tWM"F1yqHmN8uDbAhk6tWM"
+{"success":true,"data":{"success":true,"data":{"tradingPatterns":[{"type":"normal","confidence":0,"indicators":[]},{"type":"normal","confidence":0,"indicators":[]},{"type":"normal","confidence":0,"indicators":[]},{"type":"normal","confidence":0,"indicators":[]},{"type":"normal","confidence":0,"indicators":[]}],"anomalies":[{"detected":true,"type":"path","severity":0.8,"details":"path, price"},{"detected":true,"type":"path","severity":0.8,"details":"path, price"},{"detected":true,"type":"path","severity":0.8,"details":"path, price"},{"detected":true,"type":"path","severity":0.3,"details":"path"},{"detected":true,"type":"path","severity":0.3,"details":"path"}],"riskLevel":"high","riskFactors":["suboptimal_path","anomaly_path"],"timeSeriesData":{"1h":[{"timestamp":1744045200000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":2,"count":2},{"timestamp":1744063200000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":1,"count":1},{"timestamp":1744066800000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":2,"count":2}],"4h":[{"timestamp":1744041600000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":2,"count":2},{"timestamp":1744056000000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":3,"count":3}],"1d":[{"timestamp":1743984000000,"open":0.95,"high":0.95,"low":0.95,"close":0.95,"volume":5,"count":5}]}}}}a@a:~/solscanredacted$ 
